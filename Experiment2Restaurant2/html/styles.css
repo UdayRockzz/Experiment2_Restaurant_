@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+  margin: 0;
+}
+
+.nav {
+    text-align:center;
+    position:fixed;
+    /*z-index:9999;*/
+    max-width: 1280px;
+    margin: 0 auto; left:0px; right:0px;
+    /*float: clear;*/
+    max-height: 60px;
+    background-color: darkolivegreen;
+    top: 0;
+}
+
+.nav button.tab_buttons{
+    display:inline-block;
+    padding:0.5em 3em;
+    border:0.16em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-weight:400;
+    font-size: 20px;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.15s;
+    background-color: Transparent;
+}
+.nav button.tab_buttons:active{
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+}
+
+.column {
+    position: center;
+    padding: 30px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: darkolivegreen;
+}
+
+/*.column1 {*/
+/*    position: center;*/
+/*    padding: 30px;*/
+/*    margin-top: 10px;*/
+/*    margin-bottom: 10px;*/
+/*    margin-left: 10px;*/
+/*    margin-right: 10px;*/
+/*    border-style: solid;*/
+/*    border-color: darkolivegreen;*/
+/*    max-width: 100%;*/
+/*    max-height: 100%;*/
+/*    background-color: #FFFFFF;*/
+/*}*/
+
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content-row {
+    position: relative;
+    top: 5%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 20px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    display: table;
+}
+
+.order_column{
+    width: 60%;
+    float: left;
+}
+
+.order_full{
+    width: 40%;
+    height: 100%;
+    color: #FFFFFF;
+    float: left;
+    font-size: larger;
+
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    /*color: #818181;*/
+    color: darkolivegreen;
+    display: inline-block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    position: absolute;
+    /*top: 0px;*/
+    right: 45px;
+    font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+.order_selection_tab {
+    display: none;
+    font-size: small;
+    color: #FFFFFF;
+}
+
+.drinkTab {
+    display: none;
+    font-size: small;
+    color: #FFFFFF;
+}
+
+h1{
+    font-size: x-large;
+    color: white;
+}
+
+/*h2{*/
+/*    font-size: xx-large;*/
+/*    color: darkolivegreen;*/
+/*}*/
+
+.drink-column{
+    float: left;
+    width: 33.3%;
+    padding: 10px;
+}
+
+.drink-column1{
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.drink-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ordering_buttons1{
+    font-size: large;
+    color: darkolivegreen;
+    background-color: transparent;
+    border: none;
+    margin: 5px;
+}
+
+.ordering_buttons{
+    background-color: Transparent;
+    /*border: none;*/
+    color: #FFFFFF;
+    font-size: medium;
+    height: 30px;
+    min-width: 150px;
+    border-color: #f1f1f1;
+}
+
+/*.ordering_buttons:hover,*/
+/*.ordering_buttons:focus {*/
+/*  background-color: #2980B9;*/
+/*}*/
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+    width: 100%;
+    min-height: 50px;
+    background-color: transparent;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative; /*NEED TO SORT FOR MOVING CONTENT*/
+  background-color: transparent;
+  min-width: 150px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd
+}
+
+.show {
+  display: block;
+}
+
+.main_order{
+    background-color: transparent;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+li {
+    decoration: none;
+    display: block;
+    margin-top: 1em;
+    text-align: center;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+#add {
+  background-color: black;
+  color: white;
+  border: none;
+  width: 280px;
+  font-color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 15px;
+  outline: none;
+  text-align: center;
+  margin: 20px auto;
+  display: block;
+}
+
+#add:hover {
+  background-color: #28364d;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+#add:active {
+  position: relative;
+  bottom: 2px;
+}
+
+.btn{
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #000;
+    color: white;
+    border-color: #f1f1f1;
+    outline: none;
+    font-size: 20px;
+    text-align: left;
+}
+
+.btn:active {
+position: relative;
+bottom: 2px;
+}

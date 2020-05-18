@@ -1,0 +1,68 @@
+topic: ~Experiment2()
+language: enu
+
+
+### -----CONCEPTS----- ###
+concept:(hello) [hello hi hey hiya "good morning" "good afternoon" greetings welcome]
+concept:(i_am) ["I am" "I'm"]
+concept:(good) [great good "{very} well" awesome brilliant fabulous]
+concept:(bad) [bad "not good" sad ] 
+concept:(what_is) [What's "What is"]
+concept:(how_are) [How're "How are" how]
+concept:(thanks) ["Thank you" thanks]
+concept:(yes) [yeah yes yep yup yus ok sure]
+concept:(no) [no nope no]
+
+##### -----CONVERSATION----- ###
+
+u:(~hello) Hello, I am Pepper and I will be your waiter for today. please use my tablet to navigate the menu
+
+u:(["{"I would like"} a drink" "Can I see the drinks menu {please}" "show me drinks"]) We have a range Alcoholic and Soft drinks, here is the menu $TabChosen/Name=drinks.
+
+u:(["~what_is on the menu?" "show me Menu"]) Here is the menu $TabChosen/Name=menu. We have a range of starters and mains which can be adapte to your dietary requirements
+
+u:(["what desserts do you have?" "show me desserts"]) $TabChosen/Name=deserts here are the desserts, if you would like icecream, it will be three scoops, and a wafer!
+
+u:(~how_are you {Pepper}?) I am great thanks, how are you?
+    u1:({~i_am} ~good) That's great!
+    u1:({~i_am} ~bad) Oh no! I hope you feel better soon   
+    
+u:(~thanks {Pepper}) You are most welcome, I hope you enjoy your day! $TabChosen/Name=home
+
+u:([stop exit]) ok, I will stop. $TabChosen/Exit=1
+
+u:(["{please} can you repeat {"what you {just} said"}" "I don't understand {"what you said"}"]) please click the button again I will repeat what I said
+
+u:(["what would you reccomend {"on the menu"}?" "~what_is your favourite {"dish on the menu"}?" "~what_is the most popular {dish}?"]) Many customers seem to like the burger! $TabChosen/Name=menu
+
+u:(["thanks" "thank you"] {Pepper}) you're most welcome $TabChosen/Name=home
+
+
+###------SPEECH TAGS FOR HTML-------###
+
+u:(orderHere) on this tab you can add what you would like to your order.
+
+u:(alcoholic) Our alcoholic drinks include red, white and sparkling wine and beer!
+u:(wine) what measure would you like?
+u:(beer2) would you like a local hogsback ales or a refreshing cidre?
+u:(beer3) unfortunately we only sell one non-alcoholic beer. I hope you like it!
+u:(nonalcoholic) We have a wide selection of soft drinks, juices and water
+
+u:(starter1) the beetroot salad can be made vegan if you wish!
+u:(starter2) we have both vegan and non vegan options 
+u:(starter3) would you like bread with your soup?
+
+u:(main1) would you like the vegan or non vegan option?
+u:(main2) would you like the vegan or non vegan option?
+u:(main3) would you like the vegan or non vegan option?
+
+u:(desert1) this desert can come with butter crumble topping and vanilla ice cream, or, a vegan sunflower oil crumble and strawberry ice cream. What option would you like?
+u:(desert2) would you like a belgian chocolate egg and cream based mousse, or, a vegan cocoa powder and avocado based mousse?
+u:(desert3) would you like the pie to be baked in an all-butter passtry with salted caramel ice cream, or, a vegan filo pastry cup with vanilla ice cream?
+
+u:(icecream1) here are our staple ice creams! vanilla, chocolate brownie and salted caramel. For more options please check out our vegan ice creams!
+u:(icecream2) these ice creams are made vegan
+u:(sorbet) we have a selection of sorbet's, which would you like?
+
+u:(removeall) I see you have removed all options from your order. Please feel free to start your order again when you're ready!
+u:(sendorder) You're order has been sent! If you would like to order anything else, please feel free to do so from my tablet.

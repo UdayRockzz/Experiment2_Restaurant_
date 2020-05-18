@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.7" uuid="experiment2-8be091">
+ <names>
+  <name lang="en_US">Experiment 2</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">An app that can show you the menus or program for a conference. Basic conversation included</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path=".">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <dialogContent topicName="Experiment2" typeVersion="1.0">
+   <topic path="Experiment2/Experiment2_enu.top" language="en_US"/>
+  </dialogContent>
+ </contents>
+ <requirements>
+  <naoqiRequirement minVersion="2.5" maxVersion="2.7"/>
+  <robotRequirement model="JULIETTE"/>
+ </requirements>
+ <services>
+  <service execStart="main.py" name="PythonAppMain" autorun="false"/>
+ </services>
+ <executableFiles>
+  <file path="main.py"/>
+ </executableFiles>
+</package>

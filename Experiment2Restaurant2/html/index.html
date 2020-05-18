@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/libs/qi/2/qi.js"></script>
+    <script src="main.js"></script>
+    <script src="jquery-3.4.1.js"></script>
+    <link media="screen" href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<nav class="nav">
+    <button id="drinks" class="tab_buttons" onclick="tabCallback('drinks')" type="button">Drinks</button>
+    <button id="menu" class="tab_buttons" onclick="tabCallback('menu')">Menu</button>
+    <button id="deserts" class="tab_buttons" onclick="tabCallback('deserts')">Desserts</button>
+    <button id="orderHere" class="tab_buttons" onclick="openNav(); speech('orderHere');">Order Here</button>
+</nav>
+
+<div class="row">
+<div class="column">
+    <img id="tab" src="imgs/lakeside_header.jpg" alt="Restaurant" style="width:100%"/>
+</div>
+</div>
+
+<div id="orderForm" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content-row">
+      <div class="order_column">
+          <div class="order_nav">
+              <a href="#" class="order_links" onclick="openOrderForm(event, 'drink_order')">Drinks</a>
+              <a href="#" class="order_links" onclick="openOrderForm(event, 'starter_order')">Starters</a>
+              <a href="#" class="order_links" onclick="openOrderForm(event, 'main_order')">Mains</a>
+              <a href="#" class="order_links" onclick="openOrderForm(event, 'desert_order')">Desserts</a>
+          </div>
+          <div id="drink_order" class="order_selection_tab">
+              <div class="order_drink">
+                  <a id="alcoholic" class="drink_links" onclick="drinkTab(event, 'alcoholic_list'); speech('alcoholic')">Alcoholic</a>
+                  <a id="nonalcoholic" class="drink_links" onclick="drinkTab(event, 'nonalcoholic_list'); speech('nonalcoholic');">Non Alcoholic</a>
+              </div>
+              <div id="alcoholic_list" class="drinkTab">
+                  <div class="drink-row">
+                      <h1>White Wine</h1>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('wine');" >Vermentino Colomabard</button>
+                          <div id="wine1" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Vermentino Colomabard 175ml')">175ml</button><br>
+                              <button class="ordering_buttons" onclick="addItem('Vermentino Colomabard 250ml')">250ml</button><br>
+                              <button class="ordering_buttons" onclick="addItem('Vermentino Colomabard Bottle')">Bottle</button><br>
+                          </div>
+                      </div>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('wine');" >Pinot Gris, Tempus Two</button>
+                          <div id="wine2" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Pinot Gris 175ml')">175ml</button>
+                              <button class="ordering_buttons" onclick="addItem('Pinot Gris 250ml')">250ml</button>
+                              <button class="ordering_buttons" onclick="addItem('Pinot Gris Bottle')">Bottle</button>
+                          </div>
+                      </div>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('wine');" >Amatore Bianco Verona</button>
+                          <div id="wine3" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Amatore Bianco Verona Bottle')">Bottle</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="drink-row">
+                      <h1>Red Wine</h1>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('wine');" >Carignan Syrah</button>
+                          <div id="wine4" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Carignan Syrah 175ml')">175ml</button>
+                              <button class="ordering_buttons" onclick="addItem('Carignan Syrah 250ml')">250ml</button>
+                              <button class="ordering_buttons" onclick="addItem('Carignan Syrah Bottle')">Bottle</button>
+                          </div>
+                      </div>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('wine');" >Shiraz, Tempus Two</button>
+                          <div id="wine5" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Shiraz, Tempus Two 175ml')">175ml</button>
+                              <button class="ordering_buttons" onclick="addItem('Shiraz, Tempus Two 250ml')">250ml</button>
+                              <button class="ordering_buttons" onclick="addItem('Shiraz, Tempus Two Bottle')">Bottle</button>
+                          </div>
+                      </div>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('wine');" >Malbec, Quara Estate</button>
+                          <div id="wine6" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Malbec, Quara Estate Bottle')">Bottle</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="drink_row">
+                      <h1>Sparkling Wine</h1>
+                      <div class="drink-column1">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('wine');" >Prosecco, Serenello</button>
+                          <div id="wine7" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Prosecco, Serenello 200ml')">200ml</button>
+                              <button class="ordering_buttons" onclick="addItem('Prosecco, Serenello 700ml')">700ml</button>
+                          </div>
+                      </div>
+                      <div class="drink-column1">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('wine');" >Serenello, Sputmante Rose</button>
+                          <div id="wine8" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Serenello, Sputmante Rose 200ml')">200ml</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="drink-row">
+                      <h1>Beer</h1>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this);" >Lager/IPA</button>
+                          <div id="beer1" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Peroni Lager')">Peroni Lager</button>
+                              <button class="ordering_buttons" onclick="addItem('Bellfield G/F Pilsner')">Bellfield G/F Pilsner</button>
+                              <button class="ordering_buttons" onclick="addItem('Bellfield G/F IPA')">Bellfield G/F IPA</button>
+                              <button class="ordering_buttons" onclick="addItem('Local Hogstar Lager')">Local Hogstar Lager</button>
+                          </div>
+                      </div>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('beer2');" >Ale/Cidre</button>
+                          <div id="beer2" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Gardeners Tipple')">Gardeners Tipple</button>
+                              <button class="ordering_buttons" onclick="addItem('Goldstar')">Goldstar</button>
+                              <button class="ordering_buttons" onclick="addItem('Hop Garden Gold')">Hop Garden Gold</button>
+                              <button class="ordering_buttons" onclick="addItem('T.E.A')">T.E.A</button>
+                              <button class="ordering_buttons" onclick="addItem('Local Hazy Hod Cidre')">Local Hazy Hod Cidre</button>
+                          </div>
+                      </div>
+                      <div class="drink-column">
+                          <button class="ordering_buttons1" onclick="dropDown(this); speech('beer3');" >Alcohol Free</button>
+                          <div id="beer3" class="dropdown-content">
+                              <button class="ordering_buttons" onclick="addItem('Becks Blue Alcohol Free')">Becks Blue Alcohol Free</button>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="nonalcoholic_list" class="drinkTab">
+                  <div class="dropdown">
+                      <button class="ordering_buttons1" onclick="dropDown(this);" >Soft Drink</button>
+                      <div id="drink1" class="dropdown-content">
+                          <button class="ordering_buttons" onclick="addItem('Coca Cola')">Coca Cola</button>
+                          <button class="ordering_buttons" onclick="addItem('Diet Coca Cola')">Diet Coca Cola</button>
+                          <button class="ordering_buttons" onclick="addItem('Lemonade')">Lemonade</button>
+                      </div>
+                  </div>
+                  <div class="dropdown">
+                      <button class="ordering_buttons1" onclick="dropDown(this);" >Juice</button>
+                      <div id="drink2" class="dropdown-content">
+                          <button class="ordering_buttons" onclick="addItem('Tomato Juice')">Tomato Juice</button>
+                          <button class="ordering_buttons" onclick="addItem('Orange Juice')">Orange Juice</button>
+                          <button class="ordering_buttons" onclick="addItem('Apple Juice')">Apple Juice</button>
+                          <button class="ordering_buttons" onclick="addItem('Cranberry Juice')">Cranberry Juice</button>
+                          <button class="ordering_buttons" onclick="addItem('Mango Juice')"> Mango Juice</button>
+                      </div>
+                  </div>
+
+                  <div class="dropdown">
+                      <button class="ordering_buttons1" onclick="dropDown(this);" >Sparkling Presses</button>
+                      <div id="drink3" class="dropdown-content">
+                          <button class="ordering_buttons" onclick="addItem('Elderflower')">Elderflower</button>
+                          <button class="ordering_buttons" onclick="addItem('Ginger Beer')">Ginger Beer</button>
+                          <button class="ordering_buttons" onclick="addItem('Raspberry Lemonade')">Raspberry Lemonade</button>
+                          <button class="ordering_buttons" onclick="addItem('Pomegranate and Elderflower')">Pomegranate and Elderflower</button>
+                      </div>
+                  </div>
+
+                  <div class="dropdown">
+                      <button class="ordering_buttons1" onclick="dropDown(this);" >Water</button>
+                      <div id="drink4" class="dropdown-content">
+                          <button class="ordering_buttons" onclick="addItem('Tonic Water')">Tonic Water</button>
+                          <button class="ordering_buttons" onclick="addItem('Soda Water')">Soda Water</button>
+                          <button class="ordering_buttons" onclick="addItem('Large Still')">Large Still</button>
+                          <button class="ordering_buttons" onclick="addItem('Large Sparkling')">Large Sparkling</button>
+                          <button class="ordering_buttons" onclick="addItem('Small Still')">Small Still</button>
+                          <button class="ordering_buttons" onclick="addItem('Small Sparkling')">Small Sparkling</button>
+                          <button class="ordering_buttons" onclick="addItem('Filtered Tap Water')">Filtered Tap Water</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div id="starter_order" class="order_selection_tab">
+              <div class="dropdown">
+                    <button class="ordering_buttons1" onclick="dropDown(this); speech('starter1');">Winter Beet Salad</button>
+                    <div id="starter1" class="dropdown-content">
+                        <button class="ordering_buttons" onclick="addItem('Winter Beet Salad (Cottage Cheese)')">Cottage Cheese</button><br>
+                        <button class="ordering_buttons" onclick="addItem('Winter Beet Salad (Cashew Cheese)')">Cashew Cheese (VE)</button>
+                    </div>
+              </div>
+              <div class="dropdown">
+                  <button class="ordering_buttons1"  onclick="dropDown(this); speech('starter2');">Cauliflower Cheese Panna Cotta</button>
+                  <div id="starter2" class="dropdown-content">
+                        <button class="ordering_buttons" onclick="addItem('Cauliflower Cheese Panna Cotta (Parmesan and Double Cream)')">Parmesan and Double Cream</button><br>
+                        <button class="ordering_buttons" onclick="addItem('Cauliflower Cheese Panna Cotta (Vegan Sheese and Soya)')">Vegan Sheese and Soya (VE)</button>
+                    </div>
+              </div>
+              <div class="dropdown">
+                  <button class="ordering_buttons1"  onclick="dropDown(this); speech('starter3');">Homemade Soup of the Day</button>
+                  <div id="starter3" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Soup with Bread')">Bread</button><br>
+                      <button class="ordering_buttons" onclick="addItem('Soup without Bread')">No Bread</button>
+                  </div>
+              </div>
+
+          </div>
+          <div id="main_order" class="order_selection_tab">
+              <div class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('main1');">Japanese Rice Burger</button>
+                  <div id="main1" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Japanese Rice Chicken Thigh Burger')">Chicken Thigh</button>
+                      <button class="ordering_buttons" onclick="addItem('Japanese Rice Tempeh Burger')">Tempeh (VE)</button>
+                  </div>
+              </div>
+
+              <div class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('main2');">BBQ Pulled Platter</button>
+                  <div id="main2" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('BBQ Pulled Pork and Cheddar Cheese Mac Platter')">Pork and Cheddar Cheese Mac</button>
+                      <button class="ordering_buttons" onclick="addItem('BBQ Pulled Mushroom and Vegan Cheese Mac Platter')">Mushroom and Vegan Cheese Mac (VE)</button>
+                  </div>
+              </div>
+
+              <div  class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('main3');">BBQ Pulled Platter</button>
+                  <div id="main3" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Beef Chipotle Chilli Tostada')">Beefsteak Strips</button>
+                      <button class="ordering_buttons" onclick="addItem('Jackfruit Chipotle Chilli Tostada')">Fruited Jackfruit (VE)</button>
+                  </div>
+              </div>
+          </div>
+          <div id="desert_order" class="order_selection_tab">
+              <div class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('desert1');">Winter Fruit Crumble</button>
+                  <div id="desert1" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Non Vegan Winter Fruit Crumble')">Non Vegan</button>
+                      <button class="ordering_buttons" onclick="addItem('Vegan Winter Fruit Crumble')">Vegan</button>
+                  </div>
+              </div>
+
+              <div class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('desert2');">Rich Chocolate Mousse</button>
+                  <div id="desert2" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Non Vegan Winter Fruit Crumble')">Non Vegan</button>
+                      <button class="ordering_buttons" onclick="addItem('Vegan Winter Fruit Crumble')">Vegan</button>
+                  </div>
+              </div>
+
+              <div class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('desert3');">Pecan Pie</button>
+                  <div id="desert3" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Non Vegan Winter Fruit Crumble')">Non Vegan</button>
+                      <button class="ordering_buttons" onclick="addItem('Vegan Winter Fruit Crumble')">Vegan</button>
+                  </div>
+              </div>
+
+              <div class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('icecream1');">Ice Cream</button>
+                  <div id="desert4" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Vanilla Ice Cream')">Vanilla</button>
+                      <button class="ordering_buttons" onclick="addItem('Chocolate Brownie Ice Cream')">Chocolate Brownie</button>
+                      <button class="ordering_buttons" onclick="addItem('Salted Caramel Ice Cream')">Salted Caramel</button>
+                  </div>
+              </div>
+
+              <div class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('icecream2');">Vegan Ice Cream</button>
+                  <div id="desert5" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Vanilla Vegan Ice Cream')">Vanilla (VE)</button>
+                      <button class="ordering_buttons" onclick="addItem('Strawberry Vegan Ice Cream')">Strawberry (VE)</button>
+                  </div>
+              </div>
+
+
+
+              <br><br>
+              <div class="dropdown">
+                  <button class="ordering_buttons1" onclick="dropDown(this); speech('sorbet');">Sorbet</button>
+                  <div id="desert6" class="dropdown-content">
+                      <button class="ordering_buttons" onclick="addItem('Mango and Passionfruit Sorbet')">Mango and Passionfruit</button>
+                      <button class="ordering_buttons" onclick="addItem('Lemon Sorbet')">Lemon</button>
+                      <button class="ordering_buttons" onclick="addItem('Blackcurrant Sorbet')">Blackcurrant</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="order_full">
+          <h2>Your Order</h2>
+          <p>Click on the box below to view your order</p>
+          <p>You can edit it here and when you're ready, send it to the kitchen</p>
+            <ul id="the_order" class="main_order">
+            </ul>
+            <button class="ordering_buttons" onclick="removeAllOptions(); speech('removeall');">remove all</button>
+            <button class="ordering_buttons" onclick="sendOrder(); speech('sendorder'); ">Send Order</button>
+      </div>
+  </div>
+</div>
+
+
+</body>
