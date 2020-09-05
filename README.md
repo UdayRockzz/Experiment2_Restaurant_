@@ -5,7 +5,7 @@ This repo shows code from my disserations HRI and Navigation in hospitality.
 
 Robot interaction was explored by developing applications for Pepper to be deployed in a customer service role through conversational capabilities and built-in tablet functionality such as using branching conversation trees and a comprehensive tablet application for food and beverage orders with tablet-touch voice prompts.
 
-The report can be found here: https://www.researchgate.net/publication/341508891_Human-Robot_Interaction_and_Navigation_in_Hospitality/figures
+[The report can be found here.](https://www.researchgate.net/publication/341508891_Human-Robot_Interaction_and_Navigation_in_Hospitality)
 
 ![alt text](https://github.com/georgiablanco/Experiment2_Restaurant_/blob/master/P1055014.jpg)
 
